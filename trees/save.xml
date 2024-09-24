@@ -1,0 +1,89 @@
+ <root BTCPP_format="4" >
+    <!-- If you want to include subtrees -->
+     <!-- <include path="./subtree.xml" /> -->
+
+    <!-- Main tree -->
+     <BehaviorTree ID="MainTree"> <!--DO NOT CHANGE -->
+        <Sequence name="root_sequence">
+                      
+           <!-- If you use subtrees -->
+            <!-- <SubTree ID="Subtree name"/> -->     
+
+
+            <CheckTouchSkill name="force_sensor_check_touch" service_name="/force_sensor/check_touch" param_ns="force_sensor_check_touch"/>
+
+            <!-- <ObjectDetectionSkill name="object_detection" service_name="/object_detection" param_ns="object_detection"/>
+
+            <TfPublishSkill name="tf_publish" service_name="/tf_publish_service"/> 
+
+            <MoveToSkill name="kuka_move_to_screw_approach" action_name= "/kuka_trajectory_loader/move_to" param_ns="kuka_move_to_screw_approach"/>
+
+            <!-- esecuzione PRIMO MOVIMENTO con calcolo DELTA -->
+            <StoreActualPositionSkill name="store_actual_position" topic_name="/dynamic_joint_states"/>
+
+            <!-- <MoveToSkill name="kuka_move_to_screw" action_name= "/kuka_trajectory_loader/move_to" param_ns="kuka_move_to_screw"/> -->
+
+            <MoveToSkill name="kuka_move_to_right" action_name= "/kuka_trajectory_loader/move_to" param_ns="kuka_move_to_right"/>
+
+            <StoreActualPositionAndComputeDeltaSkill name="store_actual_position_and_compute_delta" topic_name="/dynamic_joint_states"/> 
+
+
+            <MoveToSkill name="kuka_move_to_screw_approach_lin" action_name= "/kuka_trajectory_loader/move_to" param_ns="kuka_move_to_screw_approach_lin"/>
+
+            
+            <!-- esecuzione SECONDO MOVIMENTO con calcolo DELTA -->
+            <StoreActualPositionSkill name="store_actual_position" topic_name="/dynamic_joint_states"/>
+
+            <MoveToSkill name="kuka_move_to_left" action_name= "/kuka_trajectory_loader/move_to" param_ns="kuka_move_to_left"/>
+           
+            <StoreActualPositionAndComputeDeltaSkill name="store_actual_position_and_compute_delta" topic_name="/dynamic_joint_states"/> 
+
+
+            <MoveToSkill name="kuka_move_to_screw_approach_lin" action_name= "/kuka_trajectory_loader/move_to" param_ns="kuka_move_to_screw_approach_lin"/>
+
+
+            <!-- esecuzione TERZO MOVIMENTO con calcolo DELTA -->
+            <StoreActualPositionSkill name="store_actual_position" topic_name="/dynamic_joint_states"/>
+            
+            <MoveToSkill name="kuka_move_to_up" action_name= "/kuka_trajectory_loader/move_to" param_ns="kuka_move_to_up"/>
+
+            <StoreActualPositionAndComputeDeltaSkill name="store_actual_position_and_compute_delta" topic_name="/dynamic_joint_states"/> 
+            
+
+            <MoveToSkill name="kuka_move_to_screw_approach_lin" action_name= "/kuka_trajectory_loader/move_to" param_ns="kuka_move_to_screw_approach_lin"/>
+
+
+            <!-- esecuzione QUARTO MOVIMENTO con calcolo DELTA -->
+            <StoreActualPositionSkill name="store_actual_position" topic_name="/dynamic_joint_states"/>
+
+            <MoveToSkill name="kuka_move_to_down" action_name= "/kuka_trajectory_loader/move_to" param_ns="kuka_move_to_down"/>
+
+            <StoreActualPositionAndComputeDeltaSkill name="store_actual_position_and_compute_delta" topic_name="/dynamic_joint_states"/> 
+            
+            <!-- calcolo centro della vite -->
+            <ComputeAndPublishCenterSkill name="compute_and_publish_center" service_name="/compute_center_service"/>
+
+            <MoveToSkill name="kuka_move_to_center" action_name= "/kuka_trajectory_loader/move_to" param_ns="kuka_move_to_center"/> -->
+            
+            <!-- <WaitSkill name="kuka_wait_test" action_name= "/sleep_service" param_ns="kuka_wait_test"/>  -->
+            
+            <!-- <StoreActualPositionAndComputeDeltaSkill name="store_actual_position_and_compute_delta" topic_name="/dynamic_joint_states"/>  -->
+
+            <!-- <WaitSkill name="kuka_wait_test" action_name= "/sleep_service" param_ns="kuka_wait_test"/>  -->
+            
+            <!-- </Parallel> -->
+            <!-- <WaitSkill name="kuka_wait_test" action_name= "/sleep_service" param_ns="kuka_wait_test"/> 
+            <TrajectoryLoaderSkill name="kuka_trajectory_loader_test" action_name= "/kuka_trajectory_loader/trajectory_loader" param_ns="kuka_trajectory_loader_test"/>  -->
+
+            <!-- struttura tree finale -->
+            <!-- <SubTree ID="StoreActualPosition"/> 
+
+            <Parallel name="ToolCentering">   
+               <SubTree ID="Move"/> 
+               <SubTree ID="ChechTouch"/> 
+            </Parallel>
+
+            <SubTree ID="StoreActualPosition"/>  -->
+        </Sequence>
+     </BehaviorTree>
+ </root>

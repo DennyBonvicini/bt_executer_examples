@@ -1,5 +1,8 @@
 bt_executer:
-  plugins:  ["trajectory_loader_plugin", "move_to_plugin", "wait_plugin"] #,"tool_centering_plugin"]
+  plugins:  ["trajectory_loader_plugin", "move_to_plugin", "wait_plugin", "check_touch_service_plugin",
+  	     "store_actual_position_plugin","object_detection_plugin",
+  	     "store_actual_position_and_compute_delta_plugin","tf_publish_service_plugin",
+  	     "compute_and_publish_center_plugin"]
   bt_package: "bt_executer_examples"
   bt_name: "test_tree_kuka.xml"
   
