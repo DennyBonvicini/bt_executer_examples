@@ -1,17 +1,36 @@
  <root BTCPP_format="4" >
     <!-- If you want to include subtrees -->
-     <!-- <include path="./subtree.xml" /> -->
+     <include path="./subtree_object_detection.xml" />
+     <include path="./subtree_check_touch_right.xml" />
+     <include path="./subtree_check_touch_left.xml" />
+     <include path="./subtree_check_touch_up.xml" />
+     <include path="./subtree_check_touch_down.xml" />
+     <include path="./subtree_move_to_centered_screw.xml" />
 
     <!-- Main tree -->
      <BehaviorTree ID="MainTree"> <!--DO NOT CHANGE -->
         <Sequence name="root_sequence">
                       
-           <!-- If you use subtrees -->
-            <!-- <SubTree ID="Subtree name"/> -->     
+            <SubTree ID="ObjectDetection"/> 
 
+            <!-- move to screw approach -->
+            <MoveToSkill name="kuka_move_to_screw_approach" action_name= "/kuka_trajectory_loader/move_to" param_ns="kuka_move_to_screw_approach"/>
 
-            <CheckTouchSkill name="force_sensor_check_touch" service_name="/force_sensor/check_touch" param_ns="force_sensor_check_touch"/>
+            <!-- move to screw -->
+            <!-- <MoveToSkill name="kuka_move_to_screw_approach" action_name= "/kuka_trajectory_loader/move_to" param_ns="kuka_move_to_screw_approach"/> -->
 
+            <SubTree ID="CheckTouchRight"/> 
+
+            <SubTree ID="CheckTouchLeft"/> 
+
+            <SubTree ID="CheckTouchUp"/> 
+
+            <SubTree ID="CheckTouchDown"/> 
+
+             <SubTree ID="MoveToCenteredScrew"/> 
+           
+            <!-- <WaitSkill name="kuka_wait_test" action_name= "/sleep_service" param_ns="kuka_wait_test"/>  -->
+            
         </Sequence>
      </BehaviorTree>
  </root>

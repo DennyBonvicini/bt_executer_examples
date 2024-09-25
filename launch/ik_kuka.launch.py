@@ -43,5 +43,51 @@ def generate_launch_description():
          launch_arguments={'config': PathJoinSubstitution([config_folder,"ik_solver_config_kuka.yaml"])}.items()
          )
       ]
+    ),
+
+    TimerAction(
+      period=0.0,  # delay in seconds
+      actions=[
+        Node(
+          package="force_sensor",
+          executable="check_touch_service",
+          #output="screen",
+          #ros_arguments=["--log-level", "info"]
+        )
+      ]
+    ),
+
+    TimerAction(
+      period=0.0,  # delay in seconds
+      actions=[
+        Node(
+          package="tf",
+          executable="compute_center_service",
+          #output="screen",
+          #ros_arguments=["--log-level", "info"]
+        )
+      ]
+    ),
+    TimerAction(
+      period=0.0,  # delay in seconds
+      actions=[
+        Node(
+          package="tf",
+          executable="tf_publish_service",
+          output="log",
+          ros_arguments=["--log-level", "warn"]
+        )
+      ]
+    ),
+    TimerAction(
+      period=0.0,  # delay in seconds
+      actions=[
+        Node(
+          package="yolov8",
+          executable="object_detection_service",
+          #output="screen",
+          #ros_arguments=["--log-level", "info"]
+        )
+      ]
     )
 ])

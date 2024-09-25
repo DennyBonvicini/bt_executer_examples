@@ -1,0 +1,15 @@
+ <root BTCPP_format="4" >
+    <!-- If you want to include subtrees -->
+     <!-- <include path="./subtree.xml" /> -->
+
+    <!-- Main tree -->
+     <BehaviorTree ID="ObjectDetection"> <!--DO NOT CHANGE -->
+        <Sequence name="root_sequence_object_detection">
+                         
+            <ObjectDetectionSkill name="object_detection" service_name="/object_detection" param_ns="object_detection"/>
+
+            <TfPublishSkill name="tf_publish" service_name="/tf_publish_service"/> 
+
+        </Sequence>
+     </BehaviorTree>
+ </root>

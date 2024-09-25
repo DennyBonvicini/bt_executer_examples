@@ -1,0 +1,26 @@
+ <root BTCPP_format="4" >
+    <!-- If you want to include subtrees -->
+     <!-- <include path="./subtree.xml" /> -->
+
+    <!-- Main tree -->
+     <BehaviorTree ID="MainTree"> <!--DO NOT CHANGE -->
+        <Sequence name="root_sequence">
+
+            <ObjectDetectionSkill name="object_detection" service_name="/object_detection" param_ns="object_detection"/>
+
+            <TfPublishSkill name="tf_publish" service_name="/tf_publish_service"/> 
+
+            <MoveToSkill name="kuka_move_to_screw_approach" action_name= "/kuka_trajectory_loader/move_to" param_ns="kuka_move_to_screw_approach"/>
+
+            <Parallel>
+                <Inverter> 
+                <MoveToSkill name="kuka_move_to_screw" action_name= "/kuka_trajectory_loader/move_to" param_ns="kuka_move_to_screw"/>
+                </Inverter>
+                <CheckTouchSkill name="force_sensor_check_touch" service_name="/force_sensor/check_touch" param_ns="force_sensor_check_touch"/>
+            </Parallel>
+
+            <MoveToSkill name="kuka_move_to_screw_approach_lin" action_name= "/kuka_trajectory_loader/move_to" param_ns="kuka_move_to_screw_approach_lin"/>
+
+        </Sequence>
+     </BehaviorTree>
+ </root>

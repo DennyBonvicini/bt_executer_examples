@@ -1,0 +1,23 @@
+ <root BTCPP_format="4" >
+ 
+     <BehaviorTree ID="CheckTouchRight"> 
+        <Sequence name="root_sequence_check_touch_right">
+                      
+          <StoreActualPositionSkill name="store_actual_position" topic_name="/dynamic_joint_states"/>
+          
+           <Parallel name="CheckTouch"> 
+
+                <Inverter>
+                    <MoveToSkill name="kuka_move_to_right" action_name= "/kuka_trajectory_loader/move_to" param_ns="kuka_move_to_right"/>
+               </Inverter>
+               <CheckTouchSkill name="force_sensor_check_touch" service_name="/force_sensor/check_touch" param_ns="force_sensor_check_touch"/>
+               
+            </Parallel> 
+
+            <StoreActualPositionAndComputeDeltaSkill name="store_actual_position_and_compute_delta" topic_name="/dynamic_joint_states"/> 
+
+            <MoveToSkill name="kuka_move_to_screw_approach_lin" action_name= "/kuka_trajectory_loader/move_to" param_ns="kuka_move_to_screw_approach_lin"/>
+
+        </Sequence>
+     </BehaviorTree>
+ </root>

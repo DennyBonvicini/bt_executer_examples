@@ -1,0 +1,13 @@
+ <root BTCPP_format="4" >
+ 
+     <BehaviorTree ID="MoveToCenteredScrew"> 
+        <Sequence name="root_sequence_move_to_centered_screw">
+                      
+            <!-- calcolo centro della vite -->
+            <ComputeAndPublishCenterSkill name="compute_and_publish_center" service_name="/compute_center_service"/>
+
+            <MoveToSkill name="kuka_move_to_center" action_name= "/kuka_trajectory_loader/move_to" param_ns="kuka_move_to_center"/>          
+
+        </Sequence>
+     </BehaviorTree>
+ </root>
