@@ -17,7 +17,7 @@
             <MoveToSkill name="kuka_move_to_screw_approach" action_name= "/kuka_trajectory_loader/move_to" param_ns="kuka_move_to_screw_approach"/>
 
             <!-- move to screw -->
-            <!-- <MoveToSkill name="kuka_move_to_screw_approach" action_name= "/kuka_trajectory_loader/move_to" param_ns="kuka_move_to_screw_approach"/> -->
+            <MoveToSkill name="kuka_move_to_screw" action_name= "/kuka_trajectory_loader/move_to" param_ns="kuka_move_to_screw"/>
 
             <SubTree ID="CheckTouchRight"/> 
 
@@ -27,7 +27,7 @@
 
             <SubTree ID="CheckTouchDown"/> 
 
-             <SubTree ID="MoveToCenteredScrew"/> 
+            <SubTree ID="MoveToCenteredScrew"/> 
            
             <!-- <WaitSkill name="kuka_wait_test" action_name= "/sleep_service" param_ns="kuka_wait_test"/>  -->
             

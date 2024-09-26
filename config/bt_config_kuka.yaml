@@ -4,5 +4,5 @@ bt_executer:
   	     "store_actual_position_and_compute_delta_plugin","tf_publish_service_plugin",
   	     "compute_and_publish_center_plugin"]
   bt_package: "bt_executer_examples"
-  bt_name: "prova.xml" #"test_tree_kuka.xml"
+  bt_name: "test_tree_kuka.xml"
   
