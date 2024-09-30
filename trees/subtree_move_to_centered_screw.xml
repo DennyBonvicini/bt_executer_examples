@@ -6,7 +6,17 @@
             <!-- calcolo centro della vite -->
             <ComputeAndPublishCenterSkill name="compute_and_publish_center" service_name="/compute_center_service"/>
 
-            <MoveToSkill name="kuka_move_to_center" action_name= "/kuka_trajectory_loader/move_to" param_ns="kuka_move_to_center"/>          
+            <MoveToSkill name="kuka_move_to_center" action_name= "/kuka_trajectory_loader/move_to" param_ns="kuka_move_to_center"/>   
+
+            <MoveToSkill name="kuka_move_to_screwdriver_low" action_name= "/kuka_trajectory_loader/move_to" param_ns="kuka_move_to_screwdriver_low"/>          
+
+            <GPIOSequenceWriteSkill name="kuka_screwdriver_on_low" service_name="/battery_cell_utils/gpio_sequence_write" param_ns="screwdriver_on_low"/>
+            <GPIOSequenceWriteSkill name="kuka_screwdriver_off_low" service_name="/battery_cell_utils/gpio_sequence_write" param_ns="screwdriver_off_low"/>
+
+            <MoveToSkill name="kuka_move_to_screwdriver_fast" action_name= "/kuka_trajectory_loader/move_to" param_ns="kuka_move_to_screwdriver_fast"/>   
+
+            <GPIOSequenceWriteSkill name="kuka_screwdriver_on" service_name="/battery_cell_utils/gpio_sequence_write" param_ns="screwdriver_on"/>
+            <GPIOSequenceWriteSkill name="kuka_screwdriver_off" service_name="/battery_cell_utils/gpio_sequence_write" param_ns="screwdriver_off"/>
 
         </Sequence>
      </BehaviorTree>

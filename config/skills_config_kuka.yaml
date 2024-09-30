@@ -28,8 +28,8 @@ bt_executer:
     scaling: 10 #100 rallentato per prova su cella reale
     pipeline_id: "pilz_industrial_motion_planner"
     planner_id: "LIN"
-    acceleration_scaling_factor: 0.05 #da stimare
-    velocity_scaling_factor: 0.05 #da stimare
+    acceleration_scaling_factor: 0.03 #da stimare
+    velocity_scaling_factor: 0.03 #da stimare
   
   kuka_move_to_screw:
     group_name: "kuka"
@@ -42,8 +42,8 @@ bt_executer:
     scaling: 10 #100 rallentato per prova su cella reale
     pipeline_id: "pilz_industrial_motion_planner"
     planner_id: "LIN"
-    acceleration_scaling_factor: 0.05 #da stimare
-    velocity_scaling_factor: 0.05 #da stimare
+    acceleration_scaling_factor: 0.01 #da stimare
+    velocity_scaling_factor: 0.01 #da stimare
       
   kuka_move_to_right:
     group_name: "kuka"
@@ -114,10 +114,60 @@ bt_executer:
     planner_id: "LIN"
     acceleration_scaling_factor: 0.05 #da stimare
     velocity_scaling_factor: 0.01  #da stimare
-  
+
+
+  kuka_move_to_screwdriver_low:
+    group_name: "kuka"
+    world_name: "world"
+    ik_service_name: "/rosdyn_ik_solver/get_ik" #"/kuka_ik_solver/get_ik" #"/rosdyn_ik_solver/get_ik"
+    location_name: "screwdriver_low_frame" 
+    fjt_action_name: "/kuka_jt_controller/follow_joint_trajectory"
+    simulation: False
+    speed_scaling_topic: "/kuka_speed_ovr"
+    scaling: 10 #100 rallentato per prova su cella reale
+    pipeline_id: "pilz_industrial_motion_planner"
+    planner_id: "LIN"
+    acceleration_scaling_factor: 0.01 #da stimare
+    velocity_scaling_factor: 0.01  #da stimare  
+
+
+  kuka_move_to_screwdriver_fast:
+    group_name: "kuka"
+    world_name: "world"
+    ik_service_name: "/rosdyn_ik_solver/get_ik" #"/kuka_ik_solver/get_ik" #"/rosdyn_ik_solver/get_ik"
+    location_name: "screwdriver_fast_frame" 
+    fjt_action_name: "/kuka_jt_controller/follow_joint_trajectory"
+    simulation: False
+    speed_scaling_topic: "/kuka_speed_ovr"
+    scaling: 10 #100 rallentato per prova su cella reale
+    pipeline_id: "pilz_industrial_motion_planner"
+    planner_id: "LIN"
+    acceleration_scaling_factor: 0.01 #da stimare
+    velocity_scaling_factor: 0.01  #da stimare
+
   force_sensor_check_touch:
     topic_name: "/ft_ati_controller/inputs" # topic con valori di forza e coppia del sensore di forza
     soglia: 5.0 #valore da definire 
     
   object_detection:
     script_path: "/home/gino/projects/denny_ws/src/kuka_screwdriving_utils/yolov8/scripts/offline_detect.py"  # "yolov8/scripts/detect.py" quando colleghiamo direttamente a realsense
+
+  screwdriver_on_low:
+    name: ["digital_outputs2/screwdriver_lp"] 
+    pause: [3000]
+    value: [True]
+
+  screwdriver_on:
+    name: ["digital_outputs2/screwdriver_hp"] #TODO
+    pause: [2000]
+    value: [True]
+
+  screwdriver_off_low:
+    name: ["digital_outputs2/screwdriver_lp"] #TODO
+    pause: [500] #unscrew for 3 seconds
+    value: [False]  
+
+  screwdriver_off:
+    name: ["digital_outputs2/screwdriver_hp"] #TODO
+    pause: [500] #unscrew for 3 seconds
+    value: [False]  
