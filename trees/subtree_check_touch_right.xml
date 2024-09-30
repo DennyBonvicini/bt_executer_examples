@@ -16,7 +16,7 @@
 
             <StoreActualPositionAndComputeDeltaSkill name="store_actual_position_and_compute_delta" topic_name="/dynamic_joint_states"/> 
 
-            <MoveToSkill name="kuka_move_to_screw_approach_lin" action_name= "/kuka_trajectory_loader/move_to" param_ns="kuka_move_to_screw_approach_lin"/>
+            <MoveToSkill name="kuka_move_to_screw" action_name= "/kuka_trajectory_loader/move_to" param_ns="kuka_move_to_screw"/>
 
         </Sequence>
      </BehaviorTree>

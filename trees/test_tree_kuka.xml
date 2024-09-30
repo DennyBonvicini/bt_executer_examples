@@ -19,6 +19,7 @@
             <!-- move to screw -->
             <MoveToSkill name="kuka_move_to_screw" action_name= "/kuka_trajectory_loader/move_to" param_ns="kuka_move_to_screw"/>
 
+            <!-- inizio  movimento croce -->
             <SubTree ID="CheckTouchRight"/> 
 
             <SubTree ID="CheckTouchLeft"/> 
