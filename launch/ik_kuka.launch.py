@@ -46,7 +46,7 @@ def generate_launch_description():
     ),
 
     TimerAction(
-      period=0.0,  # delay in seconds
+      period=0.0,  
       actions=[
         Node(
           package="force_sensor",
@@ -58,7 +58,7 @@ def generate_launch_description():
     ),
 
     TimerAction(
-      period=0.0,  # delay in seconds
+      period=0.0,  
       actions=[
         Node(
           package="tf",
@@ -69,7 +69,7 @@ def generate_launch_description():
       ]
     ),
     TimerAction(
-      period=0.0,  # delay in seconds
+      period=0.0,  
       actions=[
         Node(
           package="tf",
@@ -80,7 +80,7 @@ def generate_launch_description():
       ]
     ),
     TimerAction(
-      period=0.0,  # delay in seconds
+      period=0.0, 
       actions=[
         Node(
           package="yolov8",
