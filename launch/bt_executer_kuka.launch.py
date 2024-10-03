@@ -32,19 +32,7 @@ def generate_launch_description():
         ],
         shell=False
       ),
-
-    #Foo tf to use move_to_skill
-    # TimerAction(
-    #   period=0.0,  # delay in seconds
-    #   actions=[
-    #     Node(
-    #       package="tf2_ros",
-    #       executable="static_transform_publisher",
-    #       name="foo_static_tf",
-    #       arguments=["0","0","0.2","0","0","0","kuka_sensor","foo_location"],            output="screen")
-    #  ]
-    # ),
-
+ 
     TimerAction(
       period=1.0,  # delay in seconds
       actions=[
