@@ -51,8 +51,6 @@ def generate_launch_description():
         Node(
           package="force_sensor",
           executable="check_touch_service",
-          #output="screen",
-          #ros_arguments=["--log-level", "info"]
         )
       ]
     ),
@@ -63,8 +61,6 @@ def generate_launch_description():
         Node(
           package="tf",
           executable="compute_center_service",
-          #output="screen",
-          #ros_arguments=["--log-level", "info"]
         )
       ]
     ),
@@ -85,8 +81,6 @@ def generate_launch_description():
         Node(
           package="yolov8",
           executable="object_detection_service",
-          #output="screen",
-          #ros_arguments=["--log-level", "info"]
         )
       ]
     )
